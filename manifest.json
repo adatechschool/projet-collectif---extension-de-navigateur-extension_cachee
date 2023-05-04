@@ -28,5 +28,13 @@
             "mac": "Command+B"
           }
         }
-      }
+      },
+      "content_scripts": [
+        {
+          "js": ["hidden.js"],
+          "matches": [
+            "<all_urls>"
+          ]
+        }
+      ]
   }
