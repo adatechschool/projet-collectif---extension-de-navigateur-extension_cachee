@@ -1,0 +1,17 @@
+body > .scaffold > :is(top-nav, navigation-rail, side-nav, footer),
+main > :not(:last-child),
+main > :last-child > navigation-tree,
+main .toc-container {
+  display: none;
+}
+
+main > :last-child {
+  margin-top: min(10vmax, 10rem);
+  margin-bottom: min(10vmax, 10rem);
+}
+
+img{
+  border-radius: 75px;
+  content: url("https://www.francetvinfo.fr/pictures/rM0hNrV-7t6RGDbrTvLu2y4M6qQ/0x0:635x357/944x531/filters:format(webp)/2016/08/23/internet-troll.jpg");
+  /* content: url("./images/hidden_troll.png");  */
+}
