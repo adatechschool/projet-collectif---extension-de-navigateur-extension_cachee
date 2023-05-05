@@ -26,10 +26,6 @@ chrome.runtime.onInstalled.addListener(() => {
           target: { tabId: tab.id }
         });
 
-        chrome.scripting.executeScript ({
-          files: ['hidden.js'],
-          target: { tabId: tab.id }
-        });
 
       } else if (nextState === 'OFF') {
         // Remove the CSS file when the user turns the extension off
