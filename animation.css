@@ -5,12 +5,12 @@
 
 
 
-body {
+.animationCSS {
   text-shadow: 0 0 0 whitesmoke;
   animation: smoky 1s 3s both;
 }
 
-body:nth-child(even){
+.animationCSS:nth-child(even){
   animation-name: smoky-mirror;
 }
 

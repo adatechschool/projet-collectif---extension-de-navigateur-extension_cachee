@@ -10,63 +10,26 @@ main > :last-child {
   margin-bottom: min(10vmax, 10rem);
 } */
 
+
 img{
   border-radius: 75px;
+  border: solid;
+  border-color:rgb(31,120,245) ;
   content: url("https://www.francetvinfo.fr/pictures/rM0hNrV-7t6RGDbrTvLu2y4M6qQ/0x0:635x357/944x531/filters:format(webp)/2016/08/23/internet-troll.jpg");
   
 }
 
 
 
-body,p,code,div,article,a,span,h1,h2,h3,h4,h5,h6,em,cite {
+body,p,code,div,article,a,h1,h2,h3,h4,h5,h6,em,cite {
   color: rgb(249, 218, 219) !important;
   -webkit-text-stroke: 0.1px;
-  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-color: rgb(31,120,245);
 }
 
-/* Animation */
-/* @import "compass/css3";
-
-@import url(https://fonts.googleapis.com/css?family=Finger+Paint);
-
-
-
-body {
-
-  text-shadow: 0 0 0 whitesmoke;
-  animation: smoky 10s 1s both;
+span {
+  color: rgb(255, 205, 43) !important;
+  -webkit-text-stroke: 0.1px;
+  -webkit-text-stroke-color: rgb(31,120,245);
 }
 
-body:nth-child(even){
-  animation-name: smoky-mirror;
-}
-
-@keyframes smoky {
-  60% {
-    text-shadow: 0 0 40px whitesmoke;
-  }
-  to {
-    transform:
-      translate3d(15rem,-8rem,0)
-      rotate(-40deg)
-      skewX(70deg)
-      scale(1.5);
-    text-shadow: 0 0 20px whitesmoke;
-    opacity: 0;
-  }
-}
-
-@keyframes smoky-mirror {
-  60% {
-    text-shadow: 0 0 40px whitesmoke; }
-  to {
-    transform:
-      translate3d(18rem,-8rem,0)
-      rotate(-40deg) 
-      skewX(-70deg)
-      scale(2);
-     text-shadow: 0 0 20px whitesmoke;
-    opacity: 0;
-  }
-}
- */
