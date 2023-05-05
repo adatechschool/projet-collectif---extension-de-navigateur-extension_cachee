@@ -4,7 +4,21 @@ chrome.runtime.onInstalled.addListener(() => {
     });
   });
 
+  //Capture d'écran (https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions/API/tabs/captureVisibleTab)
+  function onCaptured(imageUri) {
+    console.log(imageUri);
+  }
   
+  function onError(error) {
+    console.log(`Error: ${error}`);
+  }
+  
+  chrome.action.onClicked.addListener(function() {
+    var capturing = chrome.tabs.captureVisibleTab();
+    capturing.then(onCaptured, onError);
+  });
+
+
   // When the user clicks on the extension action
   chrome.action.onClicked.addListener(async (tab) => {
     
