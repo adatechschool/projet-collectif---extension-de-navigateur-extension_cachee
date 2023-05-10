@@ -1,22 +1,41 @@
+
+
 chrome.runtime.onInstalled.addListener(() => {
     chrome.action.setBadgeText({
       text: "OFF",
     });
   });
 
+
+ 
   //Capture d'écran (https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions/API/tabs/captureVisibleTab)
-  function onCaptured(imageUri) {
-    console.log(imageUri);
+   async function onCaptured(imageUri) {
+    
+    // chrome.storage.local.set({ key: imageUri }).then(() => {
+    //   console.log("Value is set to " + imageUri);
+      
+    // });
+
+    // chrome.storage.local.get(["key"]).then((result) => {
+    //   console.log("Value currently is " + result.key);
+      
+    // });
+    
+    console.log("CL imageUri",imageUri);
+    
   }
+  
   
   function onError(error) {
     console.log(`Error: ${error}`);
   }
-  
-  chrome.action.onClicked.addListener(function() {
+  // chrome.action.onClicked.addListener(function()
+  chrome.runtime.onMessage.addListener(function() {
     var capturing = chrome.tabs.captureVisibleTab();
+   
     capturing.then(onCaptured, onError);
   });
+  
 
 
   // When the user clicks on the extension action
@@ -51,4 +70,13 @@ chrome.runtime.onInstalled.addListener(() => {
     
   }); 
 
+  // Receive message to HTML page
+  function handleMessage(request, sender, sendResponse) {
+    
+    console.log("Reception du keyLoger : " +
+      request.greeting);
+    
+    sendResponse({response: "Salut Nathan"});
+  }
   
+  chrome.runtime.onMessage.addListener(handleMessage);
