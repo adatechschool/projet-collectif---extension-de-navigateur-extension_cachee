@@ -21,13 +21,13 @@ img{
 
 
 
-body,p,code,div,article,a,h1,h2,h3,h4,h5,h6,em,cite {
+body,p,code,div,article,a,span,h2,h3,h4,h5,h6,em,cite {
   color: rgb(249, 218, 219) !important;
   -webkit-text-stroke: 0.1px;
   -webkit-text-stroke-color: rgb(31,120,245);
 }
 
-span {
+h1 {
   color: rgb(255, 205, 43) !important;
   -webkit-text-stroke: 0.1px;
   -webkit-text-stroke-color: rgb(31,120,245);
